@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from 'react-toastify';
 
 class AddTodo extends React.Component{
 
@@ -13,6 +14,10 @@ class AddTodo extends React.Component{
     }
 
     handleAddNewTodo = () => {
+        if (!this.state.title){     //if undefined, null, empty => false
+            toast.error('Empty title!')
+            return
+        }
         let todo = {
             id: Math.floor(Math.random()*1001),
             title: this.state.title
@@ -22,6 +27,9 @@ class AddTodo extends React.Component{
         this.setState({
             title: ''
         })
+
+        toast.success("Added succesfully!")
+
     }
 
 

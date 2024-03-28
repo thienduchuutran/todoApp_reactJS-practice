@@ -1,17 +1,34 @@
 
 import './App.scss';
 import ListTodo from './Todos/ListTodo';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Hello world with React.js (Hoi Dan IT)
+          Todo App Project
         </p>
 
         {/* <MyComponent/> */}
         <ListTodo/>
+
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            />
+            {/* Same as */}
+          <ToastContainer />
       </header>
     </div>
   );

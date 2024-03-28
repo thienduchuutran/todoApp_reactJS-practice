@@ -2,6 +2,7 @@ import React from "react";
 import './ListTodo.scss'
 import './AddTodo'
 import AddTodo from "./AddTodo";
+import { toast } from 'react-toastify';
 
 class ListTodo extends React.Component{
 
@@ -17,6 +18,7 @@ class ListTodo extends React.Component{
         this.setState({     //resetting the state of parent (the listTodos)
             listTodos: [...this.state.listTodos, todo]
         })
+
     }
 
 
