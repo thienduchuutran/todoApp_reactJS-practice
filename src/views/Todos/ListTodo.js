@@ -23,7 +23,6 @@ class ListTodo extends React.Component{
         this.setState({     //resetting the state of parent (the listTodos)
             listTodos: [...this.state.listTodos, todo]
         })
-
     }
 
     deleteItem = (listTodo) => {
@@ -35,10 +34,34 @@ class ListTodo extends React.Component{
         toast.success("Deleted...")
     }
 
-    editItem = (todo) => {
-        this.setState({
-            editTodo: todo
-        })
+    editItem = (listTodo) => {
+        let {editTodo, listTodos} = this.state;
+        let isEmptyObj = Object.keys(editTodo).length === 0; 
+
+        //save
+        if(isEmptyObj === false && editTodo.id === listTodo.id){
+            let listTodosCopy = [...listTodos]
+            
+            //Find index of specific object using findIndex method.    
+            let objIndex = listTodosCopy.findIndex(item => item.id === listTodo.id);
+
+            //Update object's name property.
+            listTodosCopy[objIndex].title  = editTodo.title
+
+            this.setState({
+                listTodos: listTodosCopy, //update the original listTodos with the new copied one
+                editTodo: '',
+            })
+            toast.success('Saved the edit!')
+
+            return;
+        }
+
+        //edit
+            this.setState({
+                editTodo: listTodo
+            })
+        
     }
 
     handleOnChangeEditTodo = (event) => {  //avoid modifying directly the state
@@ -54,7 +77,6 @@ class ListTodo extends React.Component{
     render(){
         let {listTodos, editTodo} = this.state;
         let isEmptyObj = Object.keys(editTodo).length === 0;        //searched gg, check if an OBJECT is empty
-        console.log(isEmptyObj)
 
         return(
             
@@ -83,27 +105,22 @@ class ListTodo extends React.Component{
                                         </span>
                                     :
                                     <span>
-                                        {index + 1} - {listTodo.title}
+                                        {index + 1} - {listTodo.title} 
                                     </span>
                                     }
                                 </>
                                 
                                 }
                                 
-                                {isEmptyObj === false && editTodo.id === listTodo.id  ?
+                                
                                     <button 
                                         onClick={()=>this.editItem(listTodo)}
-                                        className="save">
-                                            Save
+                                        className="edit"
+                                    >
+                                        {isEmptyObj === false && editTodo.id === listTodo.id  ? ' Save' : ' Edit'}
                                     </button>                                
-                                    :
-                                    <button 
-                                        onClick={()=>this.editItem(listTodo)}
-                                        className="edit">
-                                            Edit
-                                    </button>
 
-                                }
+                                
                                 <button 
                                     className="delete" 
                                     onClick={()=>this.deleteItem(listTodo)}
