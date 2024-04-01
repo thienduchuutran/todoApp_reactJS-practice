@@ -9,7 +9,7 @@ class AddTodo extends React.Component{
 
     handleOnChange = (event) => {
         this.setState({
-            title: event.target.value
+            title: event.target.value       //changing the content in the blank
         })
     }
 
@@ -23,7 +23,7 @@ class AddTodo extends React.Component{
             title: this.state.title
         }
 
-        this.props.addNewTodo(todo)
+        this.props.addNewTodo(todo)     //receiving the props passed from parent, passes new item at the same time
         this.setState({
             title: ''
         })
