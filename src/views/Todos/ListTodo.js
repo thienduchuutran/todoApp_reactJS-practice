@@ -34,6 +34,13 @@ class ListTodo extends React.Component{
         toast.success("Deleted...")
     }
 
+    cancelItem = (listTodo) => {
+        this.setState({
+            editTodo: ''
+        })
+        toast.success("canceled...")
+    }
+
     editItem = (listTodo) => {
         let {editTodo, listTodos} = this.state;
         let isEmptyObj = Object.keys(editTodo).length === 0; 
@@ -41,7 +48,7 @@ class ListTodo extends React.Component{
         //save
         if(isEmptyObj === false && editTodo.id === listTodo.id){
             let listTodosCopy = [...listTodos]
-            
+
             //Find index of specific object using findIndex method.    
             let objIndex = listTodosCopy.findIndex(item => item.id === listTodo.id);
 
@@ -121,12 +128,22 @@ class ListTodo extends React.Component{
                                     </button>                                
 
                                 
+
+                                {isEmptyObj === false && editTodo.id === listTodo.id  ?
+                                <button 
+                                    className="cancel" 
+                                    onClick={()=>this.cancelItem(listTodo)}
+                                >
+                                    Cancel
+                                </button>
+                                :
                                 <button 
                                     className="delete" 
                                     onClick={()=>this.deleteItem(listTodo)}
                                 >
                                     Delete
                                 </button>
+                                }  
                             </div>
                             )
                         }
