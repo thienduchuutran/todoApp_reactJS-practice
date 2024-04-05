@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
+// import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Color from "../HOC/Color";
 
 class Home extends React.Component{

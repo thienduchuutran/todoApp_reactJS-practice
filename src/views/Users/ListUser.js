@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './ListUser.scss'
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min"; //if you wanna redirect to a new page, you need this
 
 class ListUser extends React.Component{
     state ={
@@ -16,6 +17,12 @@ class ListUser extends React.Component{
         })
 
     }
+
+    handleViewDetailUser = (user) => {
+        this.props.history.push(`/user/${user.id}`)
+    }
+
+
     render(){
         let {ListUser} = this.state //taking the list out from object above
         return(
@@ -29,9 +36,17 @@ class ListUser extends React.Component{
                         ListUser && ListUser.length > 0 &&
                         ListUser.map((user, index) => {
                             return(
-                                <div className="child" key={user.id}>
-                                    {index+1} - {user.first_name}  {user.last_name}
-                                </div>
+                                <>
+                                    <div 
+                                        className="child" 
+                                        key={user.id}
+                                        onClick={()=>this.handleViewDetailUser(user)}
+                                        style={{cursor: 'pointer'}}
+                                    >
+                                        {index+1} - {user.first_name}  {user.last_name}
+                                    </div>
+
+                                </>
                             )
                         })
                     }
@@ -42,4 +57,4 @@ class ListUser extends React.Component{
     }
 }
 
-export default ListUser
+export default withRouter(ListUser)

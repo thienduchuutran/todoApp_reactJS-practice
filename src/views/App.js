@@ -7,12 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
 import ListUser from './Users/ListUser';
+import DetailUser from './Users/DetailUser';
 
 import {
   BrowserRouter,
   Switch,
   Route,
-  Link,
 } from "react-router-dom";
 
 function App() {
@@ -33,9 +33,12 @@ function App() {
             <Route path="/about">
               <MyComponent />
             </Route>
-            <Route path="/user">
+            <Route path="/user" exact>
               <ListUser />
-            </Route>            
+            </Route>         
+            <Route path="/user/:id">    {/* the : is telling that the word after it is a param */}
+              <DetailUser />
+            </Route>    
           </Switch>
 
 
