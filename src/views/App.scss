@@ -1,10 +1,46 @@
 .App {
   text-align: center;
+  text-rendering: optimizeSpeed;
+  background-color: #faf7eb;
+  line-height: 1.5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  box-sizing: inherit;
+  // background-color: #faf7eb;
+  
+}
+
+html{
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: 'Madimi One', 'sans-serif';
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  
+}
+
+body{
+  text-rendering: optimizeSpeed;
+  
+  line-height: 1.5;
+}
+
+.grid{
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* if not wanna use width 1200 */
+.grid__full-width{  
+  width: 100%;
+}
+
+/* if wanna lie on a same row */
+.grid__row{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,7 +50,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #faf7eb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,13 +62,5 @@
 
 .App-link {
   color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

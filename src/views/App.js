@@ -9,6 +9,8 @@ import Home from './Example/Home';
 import ListUser from './Users/ListUser';
 import DetailUser from './Users/DetailUser';
 
+import HomeLayout from '../components/main/HomeLayout';
+
 import {
   BrowserRouter,
   Switch,
@@ -22,24 +24,24 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <Nav/>
+        
           {/* <MyComponent/> */}
           {/* <ListTodo/> */}
           <Switch>
             <Route path="/" exact>
-              <Home />
+              <HomeLayout/>
             </Route>
             <Route path="/todos">
-              <ListTodo />
+              <HomeLayout/>
             </Route>
             <Route path="/about">
-              <MyComponent />
+              <HomeLayout/>
             </Route>
             <Route path="/user" exact>
-              <ListUser />
+              <HomeLayout/>
             </Route>         
             <Route path="/user/:id">    {/* the : is telling that the word after it is a param */}
-              <DetailUser />
+              <HomeLayout/>
             </Route>    
           </Switch>
 

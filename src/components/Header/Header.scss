@@ -1,0 +1,22 @@
+.header{
+    height: 30px;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cbb0c9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.header__info p{
+    height: 100%;
+    color: #fff;
+    font-size: medium;
+    font-weight: lighter;
+}
+
+

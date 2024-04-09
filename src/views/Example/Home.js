@@ -25,7 +25,7 @@ class Home extends React.Component{
         return(
             <>
                 
-                <div>Home</div>
+                {/* <div>Home</div> */}
                 <img style={{width: '300px', height: '300px', marginTop: '40px', borderRadius: '300px'}} src={logo}/>
                 <div>
                     {listUser && listUser.length> 0 &&
